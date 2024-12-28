@@ -6,11 +6,10 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 10:59:01 by marco             #+#    #+#             */
-/*   Updated: 2024/12/23 14:27:08 by marco            ###   ########.fr       */
+/*   Updated: 2024/12/28 21:03:38 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdio.h>
 
 int ft_strlen(const char *str)
