@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "mylib.h"
 
-int ft_strlen(const char *str)
+char *ft_strnstr(const char *big, const char *little, size_t len)
 {
-    int len = 0;
-    while (str[len] != '\0')
-        len++;
-    return len;
-}
+    size_t i;
+    size_t j;
 
-char *ft_strstr(char *haystack, char *needle)
-{
-    int i = 0;
-    int j;
-
-    if (ft_strlen(needle) == 0)
-        return haystack;
-    while (haystack[i] != '\0')
+    i = 0;
+    j = 0;
+    if (ft_strlen(little) == 0)
+        return big;
+    while (big[i] != '\0' && i + j < len)
 	{
-        if (haystack[i] == needle[0])
+        if (big[i] == little[0])
 		{
             j = 0;
-            while (haystack[i + j] == needle[j] && needle[j] != '\0')
+            while (i + j < len && big[i + j] == little[j] && little[j] != '\0')
                 j++;
-            if (needle[j] == '\0')
-                return haystack + i;
+            if (little[j] == '\0')
+                return big + i;
         }
         i++;
     }
@@ -43,10 +37,10 @@ char *ft_strstr(char *haystack, char *needle)
 }
 
 /* int main() {
-    char *haystack = "Hola, ¿como estás?";
-    char *needle = "om";
+    char *big = "Hola, ¿como estás?";
+    char *little = "om";
     
-    char *result = ft_strstr(haystack, needle);
+    char *result = ft_strstr(big, little);
     
     if (result != NULL) {
         printf("todo bien retorna esto: %s\n", result);

@@ -10,26 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "mylib.h"
 
-void ft_putstr(char *str)
-{
-	while(*str)
-	{
-		write(1,str,1);
-		str++;
-	}
-}
-
-int ft_strlen(const char *str)
-{
-    int len = 0;
-    while (str[len] != '\0')
-        len++;
-    return len;
-}
-
-char *ft_strdup(char *s)
+char *ft_strdup(const char *s)
 {
 	char 	*result;
 	int 	i;
