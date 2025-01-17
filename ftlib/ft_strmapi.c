@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 17:49:42 by user              #+#    #+#             */
-/*   Updated: 2025/01/10 18:10:02 by marco            ###   ########.fr       */
+/*   Created: 2025/01/17 13:50:23 by marco             #+#    #+#             */
+/*   Updated: 2025/01/17 15:23:15 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    size_t i;
-    size_t src_len;
-    size_t dst_len;
+	int len;
+	char *result;
+	unsigned int i;
 
-    i = 0;
-    src_len = ft_strlen(src);
-    dst_len = ft_strlen(dst);
-    if (size > 0)
-    {
-        while (i < size - 1 && src[i] != '\0')
-        {
-            dst[dst_len + i] = src[i];
-            i++;
-        }
-        dst[dst_len + i] = '\0';
-    }
-    return (src_len + dst_len);
+	if (!s || !f)
+        return (NULL);
+	len = ft_strlen(s);
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+        return (NULL);
+	result[len] = '\0';
+	while (s[i])
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
+	return (result);
 }

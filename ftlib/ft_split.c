@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  #+#  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-06 12:27:23 by user              #+#    #+#             */
-/*   Updated: 2025-01-06 12:27:23 by user             ###   ########.fr       */
+/*   Created: 2025/01/06 12:27:23 by user              #+#    #+#             */
+/*   Updated: 2025/01/17 12:20:05 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,63 @@ int count_char(char *str, char c)
     return (i);
 }
 
+char **allocate_memory(int count, size_t len)
+{
+    char **strings;
+    strings = (char **)malloc((count + 1) * sizeof(char *) + len - count);
+    return (strings);
+}
+
+void split_char_found(char **block, int *j, int *l)
+{
+    **block = '\0';
+    (*block)++;
+    (*j)++;
+    *l = 0;
+}
+
+void fill_strings(char **strings, char const *s, char c)
+{
+    char *block;
+    int i;
+	int j;
+	int l;
+
+	i = 0;
+	j = 0;
+	l = 0;
+    block = (char *)(strings + count_char((char *)s, c) + 2);
+    while (s[i])
+    {
+        if (s[i] != c)
+        {
+            if (l == 0)
+                strings[j] = block;
+            *block++ = s[i];
+            l++;
+        }
+		else if (l > 0)
+      		split_char_found(&block, &j, &l);
+        i++;
+    }
+    if (l > 0)
+        *block++ = '\0';
+    strings[j + (l > 0)] = NULL;
+}
+
 char **ft_split(char const *s, char c)
 {
-    char *str;
-    int i;
-    int j;
     char **strings;
-
-    i = 0;
-    j = 0;
-    ft_memcpy(str, s);
-    ft_strtrim(str, c);
-    strings = (char **)malloc(ft_strlen(str) - count_char(str) * sizeof(char *));
-    while (str[i] != '\0')
-    {
-        if (str[i] = c)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
+    int count;
+    size_t len;
+	
+    if (!s)
+        return (NULL);
+    count = count_char((char *)s, c);
+    len = ft_strlen(s);
+    strings = allocate_memory(count, len);
+	if (!strings)
+        return (NULL);
+    fill_strings(strings, s, c);
+    return (strings);
 }

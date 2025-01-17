@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  #+#  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-05 17:32:28 by user              #+#    #+#             */
-/*   Updated: 2025-01-05 17:32:28 by user             ###   ########.fr       */
+/*   Created: 2025/01/05 17:32:28 by user              #+#    #+#             */
+/*   Updated: 2025/01/10 15:04:44 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void *ft_calloc(size_t number, size_t size)
         *((char *)pointer + i) = 0;
         i++;
     }
-    return pointer
+    return (pointer);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  #+#  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-03 19:47:47 by user              #+#    #+#             */
-/*   Updated: 2025-01-03 19:47:47 by user             ###   ########.fr       */
+/*   Created: 2025/01/03 19:47:47 by user              #+#    #+#             */
+/*   Updated: 2025/01/10 14:24:47 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.h"
 
-void *ft_memcpy(void dest[.n], const void src[.n], size_t n)
+void *ft_memcpy(void *dest, const void *src, size_t n)
 {
     unsigned char *s;
     unsigned char *d;
