@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 18:36:42 by user              #+#    #+#             */
-/*   Updated: 2025/01/23 20:33:13 by marco            ###   ########.fr       */
+/*   Created: 2025/01/22 20:45:05 by marco             #+#    #+#             */
+/*   Updated: 2025/01/23 16:56:33 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned char	*p;
-	size_t			i;
+	t_list	*new;
+	t_list	*last;
+	t_list	*first;
 
-	p = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	if (!lst || !f)
+		return (NULL);
+	last = NULL;
+	first = NULL;
+	while (lst)
 	{
-		p[i] = (unsigned char)c;
-		i++;
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+		{
+			ft_lstclear(&first, del);
+			return (NULL);
+		}
+		if (!first)
+			first = new;
+		else
+			last->next = new;
+		last = new;
+		lst = lst->next;
 	}
-	return (s);
+	return (first);
 }

@@ -3,32 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  #+#  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-04 17:49:42 by user              #+#    #+#             */
-/*   Updated: 2025-01-04 17:49:42 by user             ###   ########.fr       */
+/*   Created: 2025/01/04 17:49:42 by user              #+#    #+#             */
+/*   Updated: 2025/01/23 20:32:48 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    size_t i;
-    size_t src_len;
+	size_t	i;
+	size_t	src_len;
 
-    i = 0;
-    src_len = 0;
-    while (src[src_len] != '\0')
-        src_len++;
-    if (size > 0)
-    {
-        while (i < size - 1 && src[i] != '\0')
-        {
-            dst[i] = src[i];
-            i++;
-        }
-        dst[i] = '\0';
-    }
-    return (src_len);
+	i = 0;
+	src_len = 0;
+	while (src[src_len] != '\0')
+		src_len++;
+	if (size > 0)
+	{
+		while (i < size - 1 && src[i] != '\0')
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (src_len);
 }

@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcoga2 <marcoga2@student.42.fr>          #+#  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-12 18:40:21 by marcoga2          #+#    #+#             */
-/*   Updated: 2024/11/13 20:35:13 by marcoga2         ###   ########.fr       */
+/*   Created: 2024/11/12 18:40:21 by marcoga2          #+#    #+#             */
+/*   Updated: 2025/01/23 20:42:26 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	while (*s != '\0')
 	{
-		if (*s == (char)c) 
-			return (char *)s;
+		if (*s == (char)c)
+			return ((char *)s);
 		s++;
 	}
 	if (c == '\0')
-		return (char *)s; 
-	return (NULL); 
+		return ((char *)s);
+	return (NULL);
 }

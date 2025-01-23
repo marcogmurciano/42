@@ -6,25 +6,25 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:47:47 by user              #+#    #+#             */
-/*   Updated: 2025/01/10 14:24:47 by marco            ###   ########.fr       */
+/*   Updated: 2025/01/23 20:33:19 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.h"
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    unsigned char *s;
-    unsigned char *d;
-    size_t i;
+	unsigned char	*s;
+	unsigned char	*d;
+	size_t			i;
 
-    s = (unsigned char *)src;
-    d = (unsigned char *)dest;
-    i = 0;
-    while (i < n)
-    {
-        d[i] = s[i];
-        i++;
-    }
-    return (dest);
+	s = (unsigned char *)src;
+	d = (unsigned char *)dest;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
 }

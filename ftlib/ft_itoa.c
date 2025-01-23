@@ -6,15 +6,15 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:19:29 by marco             #+#    #+#             */
-/*   Updated: 2025/01/17 13:50:35 by marco            ###   ########.fr       */
+/*   Updated: 2025/01/23 20:40:26 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.h"
 
-int numlen(int n)
+int	numlen(int n)
 {
-	int len;
+	int	len;
 
 	len = (n <= 0);
 	while (n != 0)
@@ -25,19 +25,19 @@ int numlen(int n)
 	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	int len;
-	char *result;
-	unsigned int num;
+	int				len;
+	char			*result;
+	unsigned int	num;
 
 	len = numlen(n);
 	result = malloc (sizeof(char) * (len + 1));
 	if (!result)
-        return (NULL);
-	if(n == 0)
+		return (NULL);
+	if (n == 0)
 		result[0] = '0';
-	if(n < 0)
+	if (n < 0)
 	{
 		result[0] = '-';
 		num = -n;

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 18:36:42 by user              #+#    #+#             */
-/*   Updated: 2025/01/23 20:33:13 by marco            ###   ########.fr       */
+/*   Created: 2025/01/20 13:45:45 by marco             #+#    #+#             */
+/*   Updated: 2025/01/23 20:42:05 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*p;
-	size_t			i;
+	char	*transformed_number;
 
-	p = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		p[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
+	transformed_number = ft_itoa(n);
+	if (fd < 0 || !transformed_number)
+		return ;
+	ft_putstr_fd(transformed_number, fd);
+	free(transformed_number);
 }
